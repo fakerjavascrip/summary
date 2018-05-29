@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>轮播图</title>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		ul{
+			list-style: none;
+		}
+		.demo{
+			position: absolute;
+			width:800px;
+			height:400px;
+			left: 0px;top: 0px;right: 0px;bottom: 0px;
+			margin: auto;
+		}
+		.demo_child{
+			position: relative;
+			width: 800px;
+			height: 400px;
+			overflow: hidden;
+		}
+		.demo_box{
+			position: relative;
+			width: 3200px;
+			height: 400px;
+		}
+		.demo_li{
+			position: relative;
+			float: left;
+			width: 800px;
+			height: 400px;
+		}
+		.mark_left{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			z-index: 100;
+			top: 150px;
+		}
+		.mark_right{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			z-index: 100;
+			top: 150px;
+			left: 700px;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+		}
+/*		两边的图左右滑动*/
+		@keyframes left{
+			from{left: 800px;}
+			to{left: 0px;}
+		}
+		@keyframes right{
+			from{left: -800px;}
+			to{left: 0px;}	
+		}
+/*		中间图左右滑动*/
+		@keyframes right_center{
+			from{left: 0px;}
+			to{left: 800px;}
+		}
+		@keyframes left_center{
+			from{left: 0px;}
+			to{left:-800px;}
+		}
+	</style>
+</head>
+<body>
+    <div class="demo">
+    	<div class="demo_child">
+    		<div class="demo_box">
+    			<div class="mark_left">
+    				<img src="mark_left.png">
+    			</div>
+    			<div class="mark_right">
+    				<img src="mark_right.png">
+    			</div>
+    			<ul>
+    				<li class="demo_li">
+    					<img src="1.jpg">
+    				</li>
+    				<li class="demo_li" style="transform:translateX(-800px);left: 800px;">
+    					<img src="2.jpg">
+    				</li>
+    				<li class="demo_li" style="transform:translateX(-1600px);left: -800px;">
+    					<img src="3.jpg">
+    				</li>
+    				<li class="demo_li" style="transform:translateX(-2400px);left: -800px;">
+    					<img src="4.jpg">
+    				</li>
+    			</ul>
+    		</div>
+        </div>
+	</div>
+	<script type="text/javascript">
+		var j= 4;//一共四张图
+		var i =0;//初始显示的第一张图片
+		var left = document.getElementsByClassName("mark_left")[0];
+		var right = document.getElementsByClassName('mark_right')[0];
+		var mode = document.getElementsByClassName('demo_li'); 
+		left.onclick = function(){
+			var a;
+			a=i+1;
+			if(a==j){
+				a=0;
+			}
+			mode[i].style.animation = "left_center 1s";
+			mode[i].style.left = -800+"px";
+			mode[a].style.animation = "left 1s";
+			mode[a].style.left = 0+"px";
+			setTimeout(function(){
+				mode[i].style.animationName = "none";
+				mode[a].style.animationName = "none";
+				i=i+1;
+				if(i==j){
+					i=0;
+				}
+			},900);
+		}
+		right.onclick = function(){
+			var a;
+			a=i-1;
+			if(a<0)
+			{
+				a=j-1;
+			}
+			mode[i].style.animation = "right_center 1s";
+			mode[i].style.left = -800+"px";
+			mode[a].style.animation = "right 1s";
+			mode[a].style.left = 0+"px";
+			setTimeout(function(){
+				mode[i].style.animationName = "none";
+				mode[a].style.animationName = "none";
+				i=i-1;
+				if(i<0){
+					i=j-1;
+				}
+			},900);
+		}
+	</script>
+</body>
+</html>
