@@ -21,15 +21,10 @@
 			position: relative;
 			width: 800px;
 			height: 400px;
-		}
-		.demo_box{
-			position: relative;
-			width: 3200px;
-			height: 400px;
+			overflow: hidden;
 		}
 		.demo_li{
-			position: relative;
-			float: left;
+			position: absolute;
 			width: 800px;
 			height: 400px;
 		}
@@ -52,30 +47,11 @@
 			width: 100%;
 			height: 100%;
 		}
-/*		两边的图左右滑动*/
-		@keyframes left{
-			from{left: 800px;}
-			to{left: 0px;}
-		}
-		@keyframes right{
-			from{left: -800px;}
-			to{left: 0px;}	
-		}
-/*		中间图左右滑动*/
-		@keyframes left_center{
-			from{left: 0px;}
-			to{left: 800px;}
-		}
-		@keyframes right_center{
-			from{left: 0px;}
-			to{left:-800px;}
-		}
 	</style>
 </head>
 <body>
     <div class="demo">
     	<div class="demo_child">
-    		<div class="demo_box">
     			<div class="mark_left">
     				<img src="mark_left.png">
     			</div>
@@ -86,20 +62,77 @@
     				<li class="demo_li">
     					<img src="1.jpg">
     				</li>
-    				<li class="demo_li" style="transform:translateX(-800px);left: 800px;">
+    				<li class="demo_li" style="left: -800px">
     					<img src="2.jpg">
     				</li>
-    				<li class="demo_li" style="transform:translateX(-1600px);left: -800px;">
+    				<li class="demo_li" style="left: -800px;">
     					<img src="3.jpg">
     				</li>
-    				<li class="demo_li" style="transform:translateX(-2400px);left: -800px;">
+    				<li class="demo_li" style="left: -800px;">
     					<img src="4.jpg">
     				</li>
     			</ul>
-    		</div>
         </div>
 	</div>
 	<script type="text/javascript">
+		var i=0;j=4;
+		var mode = document.getElementsByClassName('demo_li');
+		var left = document.getElementsByClassName('mark_left')[0];
+		var right = document.getElementsByClassName('mark_right')[0];
+		function slide_left(mode,num,time){
+			var number = time*100;
+			var t=0,left = mode.offsetLeft;
+			var size = num/number;
+			var n=setInterval(function(){
+				mode.style.left = mode.offsetLeft-size+"px";
+				t=t+1;
+				if(t==number){
+					clearInterval(n);
+					mode.style.left =left-num+"px"; 
+				}
+			},10);
+		}
+		function slide_right(mode,num,time){
+			var number = time*100;
+			var t=0,right = mode.offsetLeft;
+			var size = num/number;
+			var n=setInterval(function(){
+				mode.style.left = mode.offsetLeft+size+"px";
+				t=t+1;
+				if(t==number){
+					clearInterval(n);
+					mode.style.offsetLeft =right+num+"px"; 
+				}
+			},10);
+		}
+		left.onclick = function(){
+			var a;
+			a = i+1;
+			if(a==4){
+				a=0;
+			} 
+			mode[a].style.left = 800+"px";
+			slide_left(mode[i],800,1);
+			slide_left(mode[a],800,1);
+			i=i+1;
+			if(i==4){
+				i=0;
+			}
+		}
+		right.onclick = function(){
+			var a;
+			a = i-1;
+			if(a<0){
+				a=3;
+			} 
+			mode[a].style.left = -800+"px";
+			slide_right(mode[i],800,1);
+			slide_right(mode[a],800,1);
+			i=i-1;
+			if(i<0){
+				i=3;
+			}
+		}
 	</script>
 </body>
 </html>
