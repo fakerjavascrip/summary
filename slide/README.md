@@ -1,4 +1,11 @@
-## slide
-主要是js,css3(animation,transition)三者实现的无缝轮播图
+## 三种实现轮播图的方式
+animation.html 是通过animation实现的轮播图
 
-slide博客对应位置:https://blog.csdn.net/makerbeen/article/details/80477612
+
+transition.html 是通过transition实现的轮播图
+
+
+js.html 是通过纯js实现的轮播图
+
+
+当然css动画的轮播图也用到了js去控制,具体怎么实现可以自己去观察
