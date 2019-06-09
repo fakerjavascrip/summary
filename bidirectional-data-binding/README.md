@@ -11,7 +11,10 @@ Observe模块是对对象进行遍历之后通过Object.defineProperty的方法�
 get中的内容相当于发布订阅的订阅模式当第一次实例化的时候将其添加在一个deep的实例中,这里deep的方法为存储当前对象被各个实例所使用的
 
 ### SelfVue
-入口函数,传入一个对象包含ele,data对象,methods执行函数
+入口函数,参数传入一个对象包含ele,data对象;new该实例时
+#### proxyKeys
+将data中的属性值绑定给实例的属性
+
 ### Observe
 
 ### Watcher
