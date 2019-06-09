@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-</head>
-	<body>
-		<div class="box">
-			<div>hello</div>
-		</div>
-		<script type="text/javascript">
 
 			// new实例
 			function SelfVue (options) {
@@ -193,6 +182,3 @@
 			function updateText (node, value) {
 			    node.textContent = typeof value == 'undefined' ? '' : value;
 			}
-		</script>
-	</body>
-</html>
