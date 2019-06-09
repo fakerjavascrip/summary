@@ -36,7 +36,9 @@ get中的内容相当于发布订阅的订阅模式当第一次实例化的时�
 某个dom实例第一次new Watcher的时候触发,将该实例的this通过强制触发defineproperty从而将实例的this加入订阅数组
 
 
-## Compile
+## Compile(分为两块)
+#### 指令获取模块
 主要通过attributes去获取属性的数组,之后使用call去使用Array.prototype.forEach去遍历整个属性数组然后去执行函数,函数中通过判断属性的内容从而判断指令是哪个;
 
+#### 加入属性订阅列表模块
 当然另一个线关于绑定的数据从实例的根节点开始遍历子节点,当发现有{{}}那么就调用new Watcher触发将dom绑定在属性的订阅者列表中并且包含更新数据的函数,通过textContent来更换数据
