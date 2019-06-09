@@ -2,10 +2,8 @@
 主要是现在双向数据绑定
 从vue初始化,v-model,数据变化实现,通过defineProperty
 
-
 自己总结
-主要分为三个模块,observe,watch,Compile,设计模式采用发布订阅的模式
-
+主要分为三个模块,observe,watch,Compile,设计模式采用发布订阅的模式1
 Observe模块是对对象进行遍历之后通过Object.defineProperty的方法去改变对象的get和set的方法
 
 get中的内容相当于发布订阅的订阅模式当第一次实例化的时候将其添加在一个deep的实例中,这里deep的方法为存储当前对象被各个实例所使用的
