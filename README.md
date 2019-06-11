@@ -20,3 +20,15 @@ redux的简单使用,全套基础操作
 
 ### 5.virtual-dom
 虚拟dom的实现和理解
+
+
+### 6.Promise
+Promise的简单实现和理解
+
+
+### 7.Generator
+Generator的简单实现和理解
+
+
+### 8.bind-call-apply
+三个更换this绑定的函数的简单实现和理解
