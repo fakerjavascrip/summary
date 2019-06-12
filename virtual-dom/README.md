@@ -1,2 +1,4 @@
 ## virtual-dom
 主要理解react和vue的虚拟dom以及他们共有的diff算法,探索和dom实际操作的区别
+
+直接操作dom和虚拟dom的区别是一个直接操作dom而渲染相当于是innerHtml而虚拟dom是存储在element中然后和之前的dom结构做出对比,当发生改变的做出dom更新,主要是通过js的计算弥补div的渲染损耗
