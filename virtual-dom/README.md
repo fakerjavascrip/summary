@@ -12,3 +12,5 @@
 4. 如果key值发生变化,标记dirty需要重新渲染
 虚拟dom在渲染在真实dom的时候并不是直接将虚拟dom赋值给新的html的innerHtml而是依次向下遍历如果顶层节点改变那么整个节点的innerHtml改变,依次向下遍历,遍历到具体的节点是否需要改变,但是这个过程是一次性的
 
+## 3 参考链接
+https://blog.csdn.net/Tokki_/article/details/91347789
