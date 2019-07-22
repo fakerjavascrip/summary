@@ -32,6 +32,13 @@ throw new TypeError('not funciton')抛出错误
 		let c=function(){
 		};
 		a.mycall(c);
-## 2. call
 
-## 3. apply
+## 2. call
+#### 2.1 概念讲解
+和call的区别主要是在于对参数的处理上,一个是将参数作为一个数组而apply的参数是一个一个的加入
+#### 2.2 代码
+
+
+## 3. bind
+#### 3.1 概念讲解
+在bind中包了一层apply
