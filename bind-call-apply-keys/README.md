@@ -120,12 +120,63 @@ throw new TypeError('not funciton')抛出错误
 			return obj;
 		}
 
-## 6. 
+## 6. 深拷贝
 #### 6.1 概念讲解
+建立一个对象可以让子对象可以比对父级对象是否和子对象相等
+对象三个属性:创建属性,原obj属性,parent像链表一样找到父级的属性
+其实就是比对子对象的obj和父对象的obj看是否相等,如果相等那么子对象直接赋值父对象创建对象(createparent)
 #### 6.2代码
-## 7. 
+			objb = {
+				age:12,
+			}
+			obja = {
+				age:22
+			}
+			objb.name = obja;
+			obja.name = objb;
+			function deepCopy(obj,parent=null){
+				let copy = obj instanceof Array ? [] : {};
+				let _parent = parent;
+				while(_parent){
+					// 先判断第一次的parent
+					if(_parent.obj === obj){
+						// 当前的obj和父级的obj相等那么循环引用
+						// 返回父级的创造parent即可
+						return _parent.createparent;
+					}
+					_parent = _parent.parent;
+				}
+				for(key in obj){
+					if(typeof obj[key] === 'object'){
+						copy[key] = deepCopy(obj[key],{
+							createparent:copy,
+							parent:parent,
+							obj:obj
+						});
+					} else {
+						copy[key] = obj[key];
+					}
+				}
+				return copy;
+			}
+			let t = deepCopy(obja);
+## 7. setTimeout实现setInterval
 #### 7.1 概念讲解
+先执行一次,之后将自己放在函数中递归调用
 #### 7.2代码
+		// setTimeout和setInterval存在于window对象中
+		window.MysetInterval = function(fuc,time){
+			function open(){
+				// 递归自己调用自己
+				fuc();
+				setTimeout(open,time);
+			}
+			// 首次调用
+			setTimeout(open,time);
+		}
+		MysetInterval(function(){
+			console.log("你好");
+		},1000)
 ## 8. 
 #### 8.1 概念讲解
 #### 8.2代码
