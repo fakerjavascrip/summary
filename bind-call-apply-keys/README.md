@@ -17,7 +17,7 @@ throw new TypeError('not funciton')抛出错误
 		  context.fn = this;
 		  // 获取第二个参数数组
 		  let arg = [...arguments].slice(1);
-		  // 获取返回值
+		  // 获取返回值,将数组拆分为一个一个
 		  let result = context.fn(...arg);
 		  // 删除函数对象
 		  delete context.fn
