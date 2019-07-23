@@ -81,3 +81,40 @@ throw new TypeError('not funciton')抛出错误
 			}
 		}
 
+## 4. instanceof
+#### 4.1 概念讲解
+在a.__proto__链式中存在b.prototype那么a就是b的实例
+#### 4.2 代码
+		// instanceof
+		function instanceof(left, right) {
+			let leftValue = left.__proto__;
+			let rightValue  = right.prototype;
+			while(true) {
+				if(leftValue === null) {
+					// 如果最后指向null证明不存在直接返回false
+					return false;
+				}
+				if(leftValue === rightValue) {
+					return true;
+				}
+				//  
+				leftValue = leftValue.__proto__;
+			}
+		}
+
+## 5. new
+#### 5.1 概念讲解
+创建新对象,__proto__指向构造函数的原型,将构造函数作用域赋值给新对象,this指向当前对象,执行构造函数中的代码为这个对象添加属性,返回新对象
+#### 5.2 代码
+		// 实现new的操作
+		function Mynew(fuc){
+			//创建对象
+			let obj= {
+				// 添加__proto__的指向
+				__proto__: fuc.prototype
+			};
+			//将值加入对象中,其实就是改变this的指向执行,本来正常执行就加入到了全局中
+			fuc.call(obj,...arguments);
+			// 返回对象s
+			return obj;
+		}
