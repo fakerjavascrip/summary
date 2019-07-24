@@ -1,5 +1,7 @@
 // ...是将对象解构,[...arguments]将解构内容转为数组
 // throw new TypeError('Error');抛出错误异常
+// 两个~ ~是按位取整,heMath.floor()的功能相似
+// 无法掌握循环次数适合用while,反之用for
 ## 1. call
 #### 1.1概念讲解
 多个参数,返回值为变量
@@ -195,15 +197,77 @@ throw new TypeError('not funciton')抛出错误
 			}
 		}
 		Disorder(arr);
-## 9. 
+## 9. 拆分url
 #### 9.1 概念讲解
+将参数的字符串拆出来,将每一项拆出来,再将一项拆成属性和值放入对象
 #### 9.2代码
-## 10. 
+		// url拆解参数
+		url = "www.baidu.com?name=梁某&age=12&sex=男";
+		function Split (url) {
+			// 有几类字符串拆几次,拆除只有参数的字符串
+			let arr1 = url.split("?");
+			let obj = [];
+			// 将每个字符串拆分
+			let arr2 = arr1[1].split("&");
+			let i = 0;
+			for(i=0; i<arr2.length; i++) {
+				// 将每一项拆分为对象
+				obj[arr2[i].split("=")[0]] = arr2[i].split("=")[1];
+			}
+			return obj;
+		}
+		let t = Split(url);
+## 10. 大数字相加
 #### 10.1 概念讲解
+字符串相加返回字符串,split拆分字符串为数组,pop从结尾开始相加,一个标记值确定是否进位
 #### 10.2代码
+		// 大数相加
+		let num1 = "12345678";
+		let num2 = "9999992";
+		function maxAdd(num1,num2) {
+			let arr1,arr2,res,temp;
+			arr1 = num1.split("");
+			arr2 = num2.split("");
+			// 结果res为字符串,temp的初始值为0
+			res = "",temp=0;
+			// 无法掌控循环次
+			while(arr1.length || arr2.length || temp) {
+				// ~~将数字转为整数和Math.floor差不多
+				temp += ~~arr1.pop() + ~~arr2.pop();
+				res = (temp%10)+res;
+				temp = temp>9;
+			}
+			return res;
+		}
+		let t = maxAdd(num1,num2);
+
 ## 11. 
 #### 11.1 概念讲解
 #### 11.2代码
 ## 12. 
 #### 12.1 概念讲解
 #### 12.2代码
+## 13. 
+#### 13.1 概念讲解
+#### 13.2代码
+## 14. 
+#### 14.1 概念讲解
+#### 14.2代码
+## 15. 
+#### 15.1 概念讲解
+#### 15.2代码
+## 16. 
+#### 16.1 概念讲解
+#### 16.2代码
+## 17 
+#### 17.1 概念讲解
+#### 17.2代码
+## 18. 
+#### 18.1 概念讲解
+#### 18.2代码
+## 19. 
+#### 19.1 概念讲解
+#### 19.2代码
+## 20. 
+#### 20.1 概念讲解
+#### 20.2代码
