@@ -177,9 +177,24 @@ throw new TypeError('not funciton')抛出错误
 		MysetInterval(function(){
 			console.log("你好");
 		},1000)
-## 8. 
+## 8. 数组乱序
 #### 8.1 概念讲解
+一个新数组arr1存储,一个arr.length的随机数,每次取出随机数random对应位置的数字,删除数组取出位置的内容(splice)
 #### 8.2代码
+		// 数组乱序
+		let arr = [1,2,3,4,5,6,7];
+		function Disorder(arr){
+			let arr1 = [];
+			// 随机数,记录length
+			let random,length,i;
+			length = arr.length;
+			for(i=0; i<length; i++) {
+				random = Math.round(Math.random()*(arr.length-1));
+				arr1.push(arr[random]);
+				arr.splice(random,1);
+			}
+		}
+		Disorder(arr);
 ## 9. 
 #### 9.1 概念讲解
 #### 9.2代码
