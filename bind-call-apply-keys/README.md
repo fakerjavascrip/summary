@@ -241,15 +241,73 @@ throw new TypeError('not funciton')抛出错误
 		}
 		let t = maxAdd(num1,num2);
 
-## 11. 
+## 11. 每个字符出现次数
 #### 11.1 概念讲解
+遍历整个字符串,如果存在那么+1,如果不存在那么创建初始化
 #### 11.2代码
-## 12. 
+		// 字符出现次数
+		str = "adsjkasdbasbxasd";
+		function getNum(str) {
+			let arr = str.split("");
+			let obj = [];
+			for(i=0; i<arr.length; i++) {
+				for(j=0; j<obj.length; j++) {
+					if(arr[i] === obj[j].name) {
+						obj[j].num +=1; 
+						break;
+					}
+				}
+				if(j === obj.length) {
+					obj.push({name:arr[i],num:1})
+				}
+			}
+			return obj;
+		}
+		let t = getNum(str);
+		console.log(t);
+
+## 12. 数组扁平化
 #### 12.1 概念讲解
+数组遍历,不是数组那么push,是数组那么递归
 #### 12.2代码
-## 13. 
+		//数组扁平化
+		let arrt = [[1,2,3,4],1,2,3,4,5,6];
+		function Flat(arr){
+			// 不定义i那么i就成了全局变量,那样所有函数会公用一个i
+			let arr1 = [],i;
+			console.log(arr.length)
+			for(i=0; i<arr.length; i++){
+				if(Array.isArray(arr[i])){
+					// 直接将返回数组与要扁平化的数组concat起来
+					arr1 = arr1.concat(Flat(arr[i]));
+				} else{
+					arr1.push(arr[i]);
+				}
+			}
+			return arr1;
+		}
+		let t = Flat(arrt);
+		console.log(t);
+
+## 13. 数组去重
 #### 13.1 概念讲解
+遍历一遍,当后边和前边的数字相等那么删除,之后向后移动保证前边的数字是唯一的
 #### 13.2代码
+		//数组去重
+		let arrt = [1,2,3,2,1,3,4,2,7,2];
+		function Removal(arr){
+			for(i=0; i<arr.length; i++) {
+				for(j=i+1; j<arr.length; j++) {
+					if(arr[i] === arr[j]){
+						arr.splice(j,1);
+						j--;
+					}
+				}
+			}
+			return arr;
+		}
+		let t = Removal(arrt);
+		console.log(t);
 ## 14. 
 #### 14.1 概念讲解
 #### 14.2代码
@@ -271,3 +329,38 @@ throw new TypeError('not funciton')抛出错误
 ## 20. 
 #### 20.1 概念讲解
 #### 20.2代码
+## 12. node控制请求数量
+#### 12.1 概念讲解
+一个标记值确定现在正在请求的数量,当新的请求进来判断正在请求是否满了,如果满了将请求存在数组中,当有一个请求结束,那么从数组中取出请求
+#### 12.2代码
+	//控制请求数量的办法
+	let reqNum = 0;
+	let limitReg = 20;
+	let arrhttp = [];
+	asyc function testSize(req,res){
+		reqNum++;
+		if(reqNum>limitReg){
+			console.log("当前请求大于20");
+			let httpmsg = {
+				req:req,
+				res:res,
+			}
+			arrhttp.push(httpmsg);
+		}
+		else{
+			//直接执行请求
+			textHadle(req,res);
+		}
+	}
+	async function textHadle(req,res){
+		console.log("你好");
+		nextreq(res,data);
+	}
+	function nexreq(res,data){
+		reqNum--;
+		res.send(data);
+		if(reqNum>0){
+			let httpmsg = arrhttp.shift();
+			testSize(httpmsg.req,)
+		}
+	}
