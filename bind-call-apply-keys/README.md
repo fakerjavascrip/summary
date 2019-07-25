@@ -293,7 +293,7 @@ throw new TypeError('not funciton')抛出错误
 #### 13.1 概念讲解
 遍历一遍,当后边和前边的数字相等那么删除,之后向后移动保证前边的数字是唯一的
 #### 13.2代码
-		//数组去重
+		// 数组去重
 		let arrt = [1,2,3,2,1,3,4,2,7,2];
 		function Removal(arr){
 			for(i=0; i<arr.length; i++) {
@@ -308,15 +308,94 @@ throw new TypeError('not funciton')抛出错误
 		}
 		let t = Removal(arrt);
 		console.log(t);
-## 14. 
+## 14. 节流防抖
 #### 14.1 概念讲解
+节流等到当前执行完才可以执行下一次,防抖是必须要隔一段时间不点击后才能执行下一次
 #### 14.2代码
-## 15. 
+		// 节流
+		let canrun = true;
+		t.onclick = function() {
+			if(！canrun) {
+				return；
+			} else {
+				// 这里可以写执行代码
+				setTimeout(function(){
+					canrun = true;
+				},1000);
+			}
+		}
+		// 防抖
+		let canrun = true,n;
+		y.onclick = function() {
+			if(!canrun) {
+				clearTimeout(n);
+			} else{
+				// 此处可以写执行代码
+			}
+			n = setTimeout(function(){
+				canrun = true;
+			},1000)		}
+
+## 15. jsonp请求
 #### 15.1 概念讲解
+构建请求,callback随机,异常处理,超时处理
 #### 15.2代码
-## 16. 
+		// 实现jsonp
+		// 实现callback函数随机,异常处理,超时处理
+		let id = 0;
+		function jsonp(req) {
+			// 让请求回调函数随机
+			jsonpname = "jsonp"+id++;
+			req.callback.name = jsonpname
+			if(!req.url || !req) return;
+			let script = document.createElement('script');
+			let url = req.url + '?id='+req.data.id+'callback='+req.callback.name;
+			script.src = url;
+			req.callback.name = function (res) {
+				// 执行回调获取返回的函数
+				req.callback.fuc();
+				document.body.removeChild(script);
+			}
+			// 超时处理
+			setTimeout(function(){
+				console.log("请求超时请重新处理");
+				document.body.removeChild(script);
+			},1000)
+			document.body.appendChild(script);
+			// 超时处理
+			script.onerror = function() {
+				console.log("加载出错,请处理");
+				document.body.removeChild(script);
+			}
+
+		}
+		jsonp({
+			url: "www.baidu.com",
+			data: {id:},
+			callback: {
+				fuc: function(res) {
+					console.log(res);
+				}
+			}
+		})
+## 16. 实现map
 #### 16.1 概念讲解
+第一个参数:函数,item,index,arr;第二个参数:函数执行的this指向
 #### 16.2代码
+		// 实现map
+		let arr = [1,2,3,4,5];
+		Array.prototype.maps = function(fuc,obj) {
+			let i;
+			obj = obj || window;
+			for(i=0; i< this.length; i++) {
+				fuc.call(obj,this[i],i,this);
+			}
+		}
+		let s = {};
+		arr.maps(function(item,index){
+			console.log(item);
+			console.log(this);
+		},s);
 ## 17 
 #### 17.1 概念讲解
 #### 17.2代码
