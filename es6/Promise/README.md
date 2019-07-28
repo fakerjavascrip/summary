@@ -1,10 +1,9 @@
 // try catch 抛出异常
-## 1. promise
-##### 1.1 概念讲解
-// 基本结构 => 实现状态 => 实现then方法 => 实现then异步 => 实现then返回promise => 实现catch => 实现finally
-##### 1.11 then的第二个参数和catch的区别
 // promise的错误捕获像冒泡一样,then的第二个参数和catch的主要区别是,catch不能捕获自己第一个参数的错误
-#### 2.2 代码
+## 1. promise
+#### 1.1 概念讲解
+基本结构 => 实现状态 => 实现then方法 => 实现then异步 => 实现then返回promise(这一块比较复杂) => catch => finally
+#### 1.2 代码
 		// Promise
 		// 三种状态,厨师,成功,失败
 		const PENDING = 'pending';
@@ -159,5 +158,46 @@
 		}).catch(function(){
 			console.log("catch捕获");
 		})
-## 2. 概念讲解
-实现promise.all,实现promise.race,实现promise.resolve,实现promise.reject
+		
+## 2.1 概念讲解
+实现all, 实现race, 实现reject,实现resolve
+## 2.2 代码
+		// 实现all,race,resolve,reject
+		MyPromise.all = function(arr) {
+			return new MyPromise(function(resolve,reject){
+				let result = [];
+
+				arr.forEach((promise, index) => {
+					promise.then((value) => {
+						result[index] = value;
+
+						if(result.length === arr.length) {
+							// 返回正确结果的的数组
+							resolve(result);
+						}
+					},reject)
+				})
+			})
+		}
+
+		MyPromise.race = function(arr){
+			return new MyPromise(function(resolve,reject) {
+				arr.forEach((promise, index) => {
+					promise.then(value=>{
+						resolve(value);
+					},reject);
+				})
+			})
+		}
+
+		MyPromise.resolve = function() {
+			return new Promise(function(resolve, reject) {
+				resolve();
+			})
+		}
+		MyPromise.reject = function() {
+			return new Promise(function(resolve, reject) {
+				reject();
+			})
+		}
+
