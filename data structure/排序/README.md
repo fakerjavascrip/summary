@@ -92,4 +92,5 @@
 			return Fast(left).concat(num,Fast(right));
 		}
 		console.log(Fast(arr));
-
+### 5. 参考链接
+https://github.com/biaochenxuying/blog/issues/42
