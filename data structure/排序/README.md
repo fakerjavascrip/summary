@@ -71,3 +71,25 @@
 时间复杂度: 最佳O(nlogn),最差O(n2),平均O(nlogn);空间复杂度:O(logn);
 ![](https://camo.githubusercontent.com/b6a25e0ffc22377177c2dc8113e113bd34adc284/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f31323839303831392d336532396239643264393336393035642e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430)
 #### 4.2 代码
+		// 快速排序,由小到大
+		let arr = [11,3,9,7,1,2, 5];
+		function Fast(arr) {
+			if(arr.length <=1) {
+				return arr;
+			}
+			let left = [];
+			let right = [];
+			let midindex = Math.floor(arr.length/2);
+			let midnum = arr.splice(midindex,1);
+			let num = midnum[0];
+			for(i=0; i<arr.length; i++) {
+				if(arr[i]<num) {
+					left.push(arr[i]);
+				} else {
+					right.push(arr[i]);
+				}
+			}
+			return Fast(left).concat(num,Fast(right));
+		}
+		console.log(Fast(arr));
+
