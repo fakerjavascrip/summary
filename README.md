@@ -17,3 +17,6 @@ es6的内容,和手撕
 
 ### 6. Redux
 Promise的简单实现和理解
+
+### 7. data structure
+Js实现数据结构
