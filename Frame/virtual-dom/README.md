@@ -14,7 +14,61 @@
 5.优点:首先在节点的比队上是采用的js的形式,但是在渲染的过程中对整个过程的影响就非常大,当渲染改变小的时候用diff会导致整个个过程变慢，但是如果是多个节点或者像删除了第一个节点的变化就有了很大的优化
 
 ## 3 代码
+#### 3.1 建立虚拟dom
+		// 虚拟dom
+		class  Element {
+			constructor(type, props, children) {
+				this.type = type;
+				this.props = props;
+				this.children = children;
+			}
+		}
 
+		function createElement(type, props, children) {
+			// 返回一个Element对象
+			return new Element(type, props, children);
+		}
 
+		// 伪建立虚拟dom
+		let vDom = createElement("ul", {class:"box"}, [createElement("li", {class: "box-li"}, ["1"]),createElement("li", {class:"box-li"}, ["2"]),createElement("li", {class: "box-li"}, [3])])
+
+		// 将对象转为dom节点
+		function createNode(node) {
+			let el = document.createElement(node.type);
+			for(key in node.props) {
+				if(key === "value") {
+					// 只有input需要value属性
+					if(node.type.toUpperCase() === "INPUT" || node.type.toUpperCase() ==="TEXTAREA") {
+						el.value = node.props[key];
+					}
+				} else {
+					// 设置属性
+					el.setAttribute(key, node.props[key]);
+				}
+			}
+			return el;
+		}
+
+		// 建立文本节点
+		// 将单个的节点元素组合成dom结构
+		function createDom(node) {
+		    let root = createNode(node);
+		    if(node.children && node.children.length > 0) {
+		    	node.children.forEach(function(item) {
+		    		if(item instanceof Element) {
+		    			// 是节点
+		    			root.appendChild(createDom(item));
+		    		} else {
+		    			// 文本
+		    			root.appendChild(document.createTextNode(item));
+		    		}
+		    	})
+		    }
+		    return root;
+		}
+		let dom = createDom(vDom);
+		document.getElementsByTagName("body")[0].appendChild(dom);
+    
+    #### 3.2 diff只做了解不写
 ## 4 参考链接
 https://blog.csdn.net/Tokki_/article/details/91347789
