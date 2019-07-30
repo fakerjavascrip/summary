@@ -69,7 +69,8 @@
 		let dom = createDom(vDom);
 		document.getElementsByTagName("body")[0].appendChild(dom);
     
-    #### 3.2 diff只做了解不写
+#### 3.2 diff只做了解不写
+通过先序的方式找到差异,然后将差异的部分打到真实的dom上
 ## 4 参考链接
 https://juejin.im/post/5cf3c75de51d45572c05fff3
 https://juejin.im/post/5cf7624d5188252f325d677e
