@@ -1,3 +1,4 @@
+// 函数的prototype中的内容不能直接使用,只能通过new后的对象使用或prototype使用
 ### 单例模式
 #### 概念讲解
 单个变量变为一个对象
@@ -46,7 +47,9 @@
 		child.prototype.createXml = function() {
 			console.log("重写了方法");
 		}
-		child.prototype.createXml();
+		// 需要将函数实例化
+		let done = new child();
+		done.createXml(); // 执行该方法
 #### 参考链接
 https://blog.csdn.net/qq_39512601/article/details/86803167
 
@@ -76,8 +79,80 @@ https://blog.csdn.net/qq_39512601/article/details/86803167
     
 ### 发布订阅模式
 #### 概念讲解
+订阅 => 发布 => 删除  
+订阅是否返回一个id,可以在删除的时候使用
 #### 代码
+		// 发布订阅模式
+		let pubsub = {};
+		(function(q) {
+			let arr = [];
+			let subid = -1;
+			// 发布消息
+			q.publish = function(type, title) {
+				for(key in arr) {
+					if(key === type) {
+						for(var i = 0; i< arr[key].length; i++) {
+							arr[key][i].fuc(type,title);
+						}
+					}
+				}
+			}
+			// 订阅消息
+			q.register = function(type, fuc) {
+				if(!arr[type]) {
+					arr[type] = [];
+				}
 
-### 单例模式
+				let token = (++subid).toString();
+				arr[type].push({
+					token: token,
+					fuc: fuc
+				})
+				return token;
+			}
+
+			//删除订阅
+			q.delete = function (token) {
+				for(m in arr) {
+					if(arr[m]) {
+						for(i=0; i<arr[m].length; i++) {
+							if(arr[m][i].token === token) {
+								// 删除该项
+								arr[m].splice(i,1);
+								return token;
+							}
+						}
+					}
+					return false;
+				}
+			}
+		})(pubsub)
+### 模板模式
 #### 概念讲解
+将需要执行的多个方法依次写在一个方法中执行,当然也可以修改这些方法通过继承
 #### 代码
+		// 模板模式
+		let mode = function(){};
+		mode.prototype.sayName =function() {
+			console.log("梁博");
+		}
+		mode.prototype.sayAge = function() {
+			console.log(20);
+		}
+		mode.prototype.merge = function() {
+			this.sayName();
+			this.sayAge();
+		}
+		let fuc = function(){}
+		fuc.prototype = new mode();
+		fuc.prototype.sayAge = function() {
+			console.log("年龄是个秘密");
+		}
+		let done = new fuc();
+		done.merge();// 梁博  年龄是个秘密
+### 测略模式
+#### 概念讲解
+解决if的逻辑嵌套过多
+
+### 参考链接
+https://www.cnblogs.com/xianyulaodi/p/5827821.html#_label0
