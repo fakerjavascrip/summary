@@ -21,5 +21,5 @@ Promise的简单实现和理解
 ### 7. data structure
 Js实现数据结构
 
-#### 8. Basic
+### 8. Basic
 js,css,es6基础
