@@ -1,25 +1,89 @@
-### 1. slide
-主要是js,css3(animation,transition)三者实现的无缝轮播图
+### 1. position的sticky
+#### 概念讲解
+初始设置top无用,当父级div距离视窗顶部top时在父级中滑动,保持和视窗top的高度
+#### 代码
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>sticky</title>
+        <style type="text/css">
+          .box {
+            position: relative;
+            width: 300px;
+            height: 1300px;
+            background-color: blue;
+            margin: auto;
+          }
 
-slide博客对应位置:https://blog.csdn.net/makerbeen/article/details/80477612
+          .child {
+            position: sticky;
+            width:  100px;
+            height: 100px;
+            background-color: green;
+            top: 100px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="box">
+          <div class="child">hello</div>
+        </div>
+      </html>
+### 2. 水平垂直居中
+#### 概念讲解
+margin,translate移动,flex改变布局
+#### 代码
+		  /*用margin偏移*/
+      .box {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        left: 50%;
+        margin: -100 0 0 -100px;
+      }
 
-### 2. Design Patterns
-设计模式
+      /*用translate偏移*/
+      .box {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
 
-### 3. Basic-exercises
-基础练习,实现功能的联系
+      /*用margin:auto;*/
+      .box {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        left: 0;right: 0;top: 0;bottom: 0;
+        margin: auto;
+      }
 
-### 4. es6
-es6的内容,和手撕
-
-### 5. Frame
-框架实现
-
-### 6. Redux
-Promise的简单实现和理解
-
-### 7. data structure
-Js实现数据结构
-
-#### 8. Basic
-js,css,es6基础
+      /*用flex*/
+      .box {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        justify-content: center;
+        align-items: center;
+      }
+### 3. RequestAnimationFrame
+#### 概念讲解
+只是当页面不是激活状态的时候会停止调用,节省cpu的利用率  
+会将每一帧中的dom操作结合成一次执行减少重排和重绘
+只执行一次,相当于setTimeout,帧率时1s/60
+#### 参考链接
+https://www.cnblogs.com/libin-1/p/6096067.html
+### 4. BFC
+#### 概念讲解
+触发BFC:根元素,float不为none,position为absolute或fixed  
+BFC包含上下文中的所有子元素,不包括新创建的BFC子元素的内部元素  
+BFC的效果:BFC让内部的元素与BFC外部的元素隔离开,不能相互影响
+#### 参考链接
+https://juejin.im/post/59b73d5bf265da064618731d
+## 5.CB
+#### 概念讲解
+#### 代码
