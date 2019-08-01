@@ -73,15 +73,16 @@ margin,translate移动,flex改变布局
 ### 3. RequestAnimationFrame
 #### 概念讲解
 只是当页面不是激活状态的时候会停止调用,节省cpu的利用率  
-会将每一帧中的dom操作结合成一次执行减少重排和重绘
+会将每一帧中的dom操作结合成一次执行减少重排和重绘  
 只执行一次,相当于setTimeout,帧率时1s/60
 #### 参考链接
 https://www.cnblogs.com/libin-1/p/6096067.html
 ### 4. BFC
 #### 概念讲解
-触发BFC:根元素,float不为none,position为absolute或fixed  
-BFC包含上下文中的所有子元素,不包括新创建的BFC子元素的内部元素  
-BFC的效果:BFC让内部的元素与BFC外部的元素隔离开,不能相互影响
+触发BFC:根元素,float不为none,position为absolute或fixed,overflow:不是visible的元素  
+划分：BFC包含上下文中的所有子元素,不包括新创建的BFC子元素的内部元素  
+BFC的效果:BFC让内部的元素与BFC外部的元素隔离开,不能相互影响  
+同一BFC:会互相影响比如margin重叠
 #### 参考链接
 https://juejin.im/post/59b73d5bf265da064618731d
 ## 5.CB
