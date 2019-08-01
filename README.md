@@ -7,7 +7,7 @@ slide博客对应位置:https://blog.csdn.net/makerbeen/article/details/80477612
 设计模式
 
 ### 3. Basic-exercises
-基础练习
+基础练习,实现功能的联系
 
 ### 4. es6
 es6的内容,和手撕
@@ -20,3 +20,6 @@ Promise的简单实现和理解
 
 ### 7. data structure
 Js实现数据结构
+
+#### 8. Basic
+js,css,es6基础
