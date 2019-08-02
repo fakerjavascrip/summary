@@ -87,4 +87,10 @@ BFC的效果:BFC让内部的元素与BFC外部的元素隔离开,不能相互影
 https://juejin.im/post/59b73d5bf265da064618731d
 ## 5.CB
 #### 概念讲解
-#### 代码
+static/relative cb就是父级元素的contanit,怪异盒模型也只是width
+fixed cb是html窗口  
+absolute 若父级是块级元素cb是padding-block,内联元素比较复杂一般也不这样做
+#### 参考链接
+https://www.cnblogs.com/fsjohnhuang/p/5295859.html
+### 6. 点击穿透
+#### 概念讲解
