@@ -96,4 +96,3 @@ toString，toLocalString，ValueOf返回对象的字符串形式
 #### 概念讲解
 stopPropagation,preventDefault对应cancelBubble =true;和returnValue = false;  
 stopPropagation是停止了事件流的流程而不是针对冒泡或者捕获,而冒泡与捕获只是事件流的一个过程
-### 13.
