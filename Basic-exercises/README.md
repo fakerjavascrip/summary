@@ -396,9 +396,26 @@ throw new TypeError('not funciton')抛出错误
 			console.log(item);
 			console.log(this);
 		},s);
-## 17 
+## 17. Stringify的深拷贝
 #### 17.1 概念讲解
+第二个参数,控制每个对象返回字符的内容
 #### 17.2代码
+		// stringify的深拷贝
+		function fuc() {
+			let arr = [];
+			let keys = [];
+			return function(key, value) {
+				if(typeof value === 'object' && value !=null) {
+					let m = arr.indexOf(value);
+					if(m!==-1) {
+						value = "循环引用"+keys[m];
+					}
+					arr.push(value);
+					keys.push(key || 'root');
+				}
+				return value;
+			}
+		}
 ## 18. 
 #### 18.1 概念讲解
 #### 18.2代码
