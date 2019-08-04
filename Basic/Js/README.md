@@ -36,7 +36,6 @@ replace: 替换字符,第一个参数可以为正则也可以为字符串,2参�
 split:分割为数组;  
 match:和正则差不多;  
 数组相同的方法: concat,indexOf,lastIndexOf
-#### 概念讲解
 ### 7. 随机整数
 #### 概念讲解
 Math.floor(Math.random()*100);0-100的随机整数
@@ -46,4 +45,52 @@ constructor() 指向Object
 hasOwnProperty(propertyName) 判断是否为构造函数中的属性  
 isPrototypeOf(object) 传入对象是否是当前对象的原型  
 toString，toLocalString，ValueOf返回对象的字符串形式
-### 9. 
+### 9. 对象
+#### 概念讲解
+组合构造函数加原型的方式创建对象
+#### 代码
+		// 创建对象
+		function Obj(name,age) {
+			this.name = name;
+			this.age = age;
+		}
+		Obj.prototype = {
+			construct:Obj,
+			sayName: function() {
+				console.log(this.name);
+			}
+		}
+		let obj = new Object("梁博",12);
+	
+### 10. 继承
+#### 概念讲解
+下边为寄生组合式继承,原型继承就是new一下,构造函数就是call一下
+#### 代码
+		// 寄生组合式继承
+		function Parent(name,age) {
+			this.name = name;
+			this.age = age;
+		}
+		Parent.prototype.sayName = function() {
+			console.log(this.name);
+		} 
+		function Child(name,age,sex) {
+			Parent.call(this,name,age);
+			this.sex = sex;
+		}
+		function mix(Parent, Child) {
+			let prototype = Object(Parent.prototype);
+			prototype.constructor = Child;
+			Child.prototype = prototype;
+		}
+		mix(Parent,Child);
+
+### 11. 视口
+#### 概念讲解
+获取视口:document.documentElement.clientWidth,document.body.clientWidth
+获取点击位置:
+获取鼠标位置:
+获取窗口位置:scrollTop,scrollLeft
+获取整个窗口的高度:offsetHeight,offsetWidth(不加边框)
+### 12. 事件流
+#### 概念
