@@ -1,25 +1,32 @@
-### 1. slide
-主要是js,css3(animation,transition)三者实现的无缝轮播图
+### 1. Generator
+#### 概念讲解
+#### 代码
+### async await
+#### 概念讲解
+#### 代码
+### class
+#### 概念讲解
+#### 代码
+### module
+#### 概念讲解
+export导出多个值那么导入需要花括号,也可以分多次导入但是都需要花括号
+export default导出单一值,导入不需要花括号
+#### 代码
+    // 1.export
+    //a.js
+    export const str = "blablabla~";
+    export function log(sth) { 
+      return sth;
+    }
 
-slide博客对应位置:https://blog.csdn.net/makerbeen/article/details/80477612
+    //b.js导入
+    import { str, log } from 'a'; //也可以分开写两次，导入的时候带花括号
 
-### 2. Design Patterns
-设计模式
 
-### 3. Basic-exercises
-基础练习,实现功能的联系
+    // 2.export default
+    //a.js
+    const str = "blablabla~";
+    export default str;
 
-### 4. es6
-es6的内容,和手撕
-
-### 5. Frame
-框架实现
-
-### 6. Redux
-Promise的简单实现和理解
-
-### 7. data structure
-Js实现数据结构
-
-#### 8. Basic
-js,css,es6基础
+    // b.js导入
+    import str from 'a'; //导入的时候没有花括号
