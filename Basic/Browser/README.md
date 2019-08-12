@@ -26,12 +26,20 @@ https://juejin.im/post/5cd6ad7a51882568d3670a8e
 拥塞避免: cwnd=cwnd+1;  
 门限值:cwnd<ssthresh慢开始; cwnd>ssthresh拥塞避免  
 没收到消息,执行慢开始cwnd=1;收到三次重复信息开始拥塞控制,门限值均/2;
+#### 参考链接
+https://juejin.im/entry/57183048128fe100600086ee
 ### 5. 缓存机制
 #### 概念讲解
-协商缓存:
-强缓存:
+强缓存:expire最后有效时间 cache-control缓存有效时长
+协商缓存:etag标记值 last-modified 最后修改时间
+缓存过程: 首先强缓存,之后协商缓存
 ### 6. 复杂请求和简单请求
 #### 概念讲解
+简单请求: HEAD,GET,POST;固定的请求头信息限制  
+复杂请求: 不满足就为复杂请求,复杂请求发送两次请求,第一次请求判断是否允许请求,第二次请求是正式的请求  
+复杂请求预检: response["access_Control-Allow-Methods"] = "DELETE,PUT"设置允许DELETE和PUT,response["Access-Control-Allow-Headers"] = "Content-Type设置允许请求头content-Type
+#### 参考链接
+https://www.cnblogs.com/erhao9767/p/10158647.html
 ### 7. 状态码
 #### 概念讲解
 100: post只发送请求头;200-300: 客户端请求成功;301: 永久重定向;302: 非永久重定向;304: 协商缓存;400: 客户端请求语法错误;401: 请求未授权;403: 服务器收到请求拒绝服务;404: 请求支援不存在;414: url过长;500: 服务器发生未知错误;503: 服务端不可以处理客户端请求,一段时间可回复;
