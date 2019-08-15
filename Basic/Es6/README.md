@@ -1,17 +1,27 @@
 ### 1. Generator
-#### 概念讲解
-#### 代码
-### async await
-#### 概念讲解
-#### 代码
-### class
-#### 概念讲解
-#### 代码
-### module
-#### 概念讲解
+#### 1.1 概念理解
+yield: next执行到下一个yield;yield本身没有返回值,next的参数可以作为上一个yield的返回值，v8引擎开始忽略第一次next的参数  
+throw: 捕获错误,让错误在内部出现外部也可以捕获  
+return: return后的内容不再执行; return方法的参数是value; 会先执行finally延迟执行return  
+三者: next将yield替换为参数值,throw将yield替换为抛出错误,return将yield替换为return
+yield * 可以让generator中嵌套generator执行  
+#### 1.2 参考链接
+http://es6.ruanyifeng.com/#docs/generator
+### 2. async await
+#### 2.1概念讲解
+自带执行器,更好的语义,更广的适用性,返回值是promise
+返回值: 是Promise;可使用then和catch的方法,出错后可以被catch捕获; 返回的promise必须等待异步操作执行完才执行then回调; 如果有一个await出错那么后边的await不会执行,使用try catch解决
+await: 可以是promise或者基本值
+#### 2.2 参考链接
+https://juejin.im/post/596e142d5188254b532ce2da
+### 3. class
+#### 3.1 概念讲解
+#### 3.2 代码
+### 4. module
+#### 4.1 概念讲解
 export导出多个值那么导入需要花括号,也可以分多次导入但是都需要花括号  
 export default导出单一值,导入不需要花括号
-#### 代码
+#### 4.2 代码
     // 1.export
     //a.js
     export const str = "blablabla~";
