@@ -16,6 +16,10 @@ await: 可以是promise或者基本值
 https://juejin.im/post/596e142d5188254b532ce2da
 ### 3. class
 #### 3.1 概念讲解
+constructor: 相当于构造函数  
+类内部相当于prototype,可以设置get和set  
+静态方法: 方法前加static可以直接调用,new不调用  
+特点: 不存在变量提升,默认严格模式
 #### 3.2 代码
 ### 4. module
 #### 4.1 概念讲解
