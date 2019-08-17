@@ -1,12 +1,7 @@
-### Js
-js的基础知识
-### Css
-css的基础内容
-### Es6
-Es6的基础知识
-### Vue
-Vue的基础知识
-### 函数式编程
-函数式编程的基本展现
-### Browser
-网络和浏览器原理
+### 1. 生命周期
+组件挂载:constructor,componentWillMount,render,componentDidMount
+组件更新:componentWillReceiveProps,shouldComponentUpdate,componentWillUpdate,render,componentDidUpdate
+组件卸载:componentWillUnmount
+### 2. 组件传值
+属性和事件传递到props
+### 3. 
