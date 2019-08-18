@@ -119,7 +119,7 @@ https://www.jianshu.com/p/61f75e0f549f
 				node = arr.pop();
 				if(node.right === null || node.right=== done) {
 					console.log(node.right);
-					done = node;
+					node = done;
 				} else {
 					node = node.right;
 					while(node){
