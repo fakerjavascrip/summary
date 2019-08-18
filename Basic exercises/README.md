@@ -1,6 +1,6 @@
-// ...是将对象解构,[...arguments]将解构内容转为数组
-// throw new TypeError('Error');抛出错误异常
-// 两个~ ~是按位取整,heMath.floor()的功能相似
+// ...是将对象解构,[...arguments]将解构内容转为数组  
+// throw new TypeError('Error');抛出错误异常  
+// 两个~ ~是按位取整,heMath.floor()的功能相似  
 // 无法掌握循环次数适合用while,反之用for
 ## 1. call
 #### 1.1概念讲解
