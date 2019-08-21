@@ -15,8 +15,8 @@ es6的内容,和手撕
 ### 5. Frame
 框架实现
 
-### 6. Promise
-Promise的简单实现和理解
+### 6. Redux
+Redux的基本使用
 
 ### 7. data structure
 Js实现数据结构
