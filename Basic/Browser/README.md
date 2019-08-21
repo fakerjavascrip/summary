@@ -49,12 +49,12 @@ http1.1 线头阻塞,头部冗余
 http2.0 二进制分帧传输;多路复用-同时传输多个请求但是存在上限当抵达后重组每一帧;头部压缩对头部信息进行压缩;服务器推送,比如请求html可以直接推送返回css和js减少请求数量
 #### 参考链接
 https://juejin.im/post/5c0ce870f265da61171c8c66
-### tcp和udp的区别
+### 9. tcp和udp的区别
 tcp是面向连接的,udp是无连接的  
 tcp保证可靠传输全双工,udp尽最大努力传输  
 tcp面向字节刘,udp面向报文,报文省去了拆分合并的过程  
 tcp首部开销20字节，udp首部开销较小只有8个字节  
-### get和post区别
+### 10. get和post区别
 #### 概念讲解
 get有缓存而post没有  
 get限制长度而post没有  
@@ -62,7 +62,7 @@ get参数直接暴露而post不会,get只能传递url,而post可以传递请求�
 本质并没有区别,都是tcp连接,大部分浏览器post是先发送header返回100之后发送请求体返回200
 #### 参考链接
 https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&mid=100000054&idx=1&sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd
-### ssr服务端渲染
+### 11. ssr服务端渲染
 #### 概念讲解
 后端将vue或react编译,然后将html发送给客户端  
 首次渲染的只是html和css具体操作得js加载完之后才能使用
