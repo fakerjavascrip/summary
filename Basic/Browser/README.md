@@ -62,7 +62,8 @@ get参数直接暴露而post不会,get只能传递url,而post可以传递请求�
 本质并没有区别,都是tcp连接,大部分浏览器post是先发送header返回100之后发送请求体返回200
 #### 参考链接
 https://mp.weixin.qq.com/s?__biz=MzI3NzIzMzg3Mw==&mid=100000054&idx=1&sn=71f6c214f3833d9ca20b9f7dcd9d33e4#rd
-### 11. ssr服务端渲染
+### 11. cookie
 #### 概念讲解
-后端将vue或react编译,然后将html发送给客户端  
-首次渲染的只是html和css具体操作得js加载完之后才能使用
+cookie就是浏览器管理状态的一个文件,cookie不可跨域,HttpOnly设置为true就不可以通过js获取cookie
+#### 参考链接
+https://juejin.im/post/59d1f59bf265da06700b0934
