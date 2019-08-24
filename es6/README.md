@@ -9,3 +9,6 @@ Async await的理解和解析
 
 ### 4. Class
 class的理解
+
+### 5. babel
+babel的简单理解
