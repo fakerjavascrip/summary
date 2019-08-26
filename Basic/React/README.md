@@ -4,4 +4,4 @@
 组件卸载:componentWillUnmount
 ### 2. 组件传值
 属性和事件传递到props
-### 3. 
+### 3. 定义组件的区别
