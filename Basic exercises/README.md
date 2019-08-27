@@ -416,9 +416,13 @@ throw new TypeError('not funciton')抛出错误
 				return value;
 			}
 		}
-## 18. 
+## 18. fetch
 #### 18.1 概念讲解
-#### 18.2代码
+当返回错误代码不会返回reject而只有当网络不好才会返回reject,但是可以通过返回值的response.ok可以判断是否成功  
+默认并不会发送cookie给服务端,如果需要携带cookie那么需要加credentials；'include'  
+fetch的mode: cors支持cors跨域; same-origin不支持跨域; no-cors跨域并且可以没有cors响应头,允许发送本次响应请求但是不能访问响应内容
+#### 18.2 参考链接
+https://www.cnblogs.com/cangqinglang/p/10447389.html
 ## 19. 
 #### 19.1 概念讲解
 #### 19.2代码
