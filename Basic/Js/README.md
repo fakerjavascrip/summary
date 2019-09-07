@@ -26,6 +26,7 @@ https://blog.csdn.net/makerbeen/article/details/88970528
 位置方法: indexOf,lastIndexOf  
 迭代方法: every,some,filter,forEach,map  
 归并方法: reduce,reduceRight
+转字符串方法: join
 ### 6. 包装类型的方法
 #### 概念讲解
 charAt(index): 获取当前位置的字符  
