@@ -88,11 +88,11 @@ toString，toLocalString，ValueOf返回对象的字符串形式
 
 ### 11. 视口
 #### 概念讲解
-获取视口:document.documentElement.clientWidth,document.body.clientWidth
-事件触发鼠标相对页面的位置:pageX,pageY
-事件触发鼠标相对视口的位置:clientX,clientY
-获取窗口位置:scrollTop,scrollLeft
-获取整个窗口的高度:offsetHeight,offsetWidth(不加边框)
+获取视口:document.documentElement.clientWidth,document.body.clientWidth  
+事件触发鼠标相对页面的位置:pageX,pageY  
+事件触发鼠标相对视口的位置:clientX,clientY  
+获取窗口位置:scrollTop,scrollLeft  
+获取整个窗口页面的高度:offsetHeight,offsetWidth(不加边框)  
 ### 12. 事件流
 #### 概念讲解
 stopPropagation,preventDefault对应cancelBubble =true;和returnValue = false;  
