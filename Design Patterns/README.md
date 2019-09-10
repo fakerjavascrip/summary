@@ -55,7 +55,7 @@ https://blog.csdn.net/qq_39512601/article/details/86803167
 
 ### 单例模式
 #### 概念讲解
-闭包实现new实例只进行一次
+闭包实现new实例只进行一次,闭包的利处
 #### 代码
 		// 单例模式
 		let single = (function(){
