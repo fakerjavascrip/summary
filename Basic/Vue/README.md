@@ -26,7 +26,8 @@ dom渲染在mounted中已经完成渲染
 ### 5. computed和watch的区别
 #### 概念讲解
 computed定义一个属性,调用的时候触发
-watch某个数据变化做一些事请，当变化参数传入老数据和新数据并做出操作
+watch某个数据变化做一些事请，当变化参数传入老数据和新数据并做出操作  
+watch缓存,computed不缓存
 ### 6. v-show和v-if
 #### 概念讲解
 v-show只是隐藏,v-if销毁组件
