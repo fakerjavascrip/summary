@@ -352,8 +352,8 @@ throw new TypeError('not funciton')抛出错误
 			let url = req.url + '?id='+req.data.id+'callback='+req.callback.name;
 			script.src = url;
 			req.callback.name = function (res) {
-				// 执行回调获取返回的函数
-				req.callback.fuc();
+				// 再调用一个回调使用返回来的数据
+				req.callback.fuc(res);
 				document.body.removeChild(script);
 			}
 			// 超时处理
