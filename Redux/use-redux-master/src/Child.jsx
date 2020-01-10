@@ -11,7 +11,7 @@ class Child extends  React.Component{
     render(){
         console.log(this.props)
         return(
-            <div onClick={this.props.changeage}>{this.props.age.sex}+"dasdas"</div>
+            <div onClick={()=>{this.props.changename([1,2,3,4])}}>{this.props.name}+{typeof this.props.age}</div>
         )
     }
 }

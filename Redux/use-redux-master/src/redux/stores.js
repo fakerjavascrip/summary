@@ -9,11 +9,8 @@ import redux2 from './reduxs/redux2.js';
 let  haha= {
 	//设置初始状态,与redux无关,只是与程序使用props有关
 	name:"哈哈",
-	age:{
-		num:"12",
-		sex:"男"
+	age:["1","2"]
 	}
-}
 const reducers = combineReducers({
 	//指定子reducer,处理变量
 	name:redux1,
