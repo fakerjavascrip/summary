@@ -1,3 +1,4 @@
+内容均为个人总结
 ### 1. slide
 主要是js,css3(animation,transition)三者实现的无缝轮播图
 
