@@ -17,7 +17,7 @@ es6的内容,和手撕
 框架实现
 
 ### 6. Redux
-Redux的基本使用
+Redux的基本使用 && redux-thunk && redux-saga
 
 ### 7. data structure
 Js实现数据结构
